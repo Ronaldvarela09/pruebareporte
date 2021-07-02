@@ -28,14 +28,13 @@ function FormReport({handleChange, form, customers, projects}) {
             <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                 <TextField
                     id="employee" name="employee" variant="outlined" fullWidth margin="dense"
-                    label="Empleado" onChange={handleChange} value={form.employee}
+                    label="Empleado"
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                 <TextField
                     id="dateBeg" name="dateBeg" label="Fecha inicial" type="date"
                     onChange={handleChange} variant="outlined" fullWidth margin="dense"
-                    value={form.dateBeg}
                     InputLabelProps={{shrink: true}}
                 />
             </Grid>
@@ -43,7 +42,6 @@ function FormReport({handleChange, form, customers, projects}) {
                 <TextField
                     id="dateEnd" name="dateEnd" label="Fecha final" type="date"
                     onChange={handleChange} variant="outlined" fullWidth margin="dense"
-                    value={form.dateEnd}
                     InputLabelProps={{shrink: true}}
                 />
             </Grid>
@@ -58,7 +56,6 @@ function FormReport({handleChange, form, customers, projects}) {
                     <Select
                         onChange={handleChange} name="customer"
                         input={<OutlinedInput labelWidth={130} name="customer"/>} label="Seleccione un cargo"
-                        value={form.customer}
                     >
                         {
                             customers ? customers.map(customer => <MenuItem value={customer.id}
@@ -76,7 +73,6 @@ function FormReport({handleChange, form, customers, projects}) {
                     <Select
                         onChange={handleChange} name="project"
                         input={<OutlinedInput labelWidth={130} name="project"/>} label="Seleccione un proyecto"
-                        value={form.project}
                     >
                         {
                             projects ? projects.map(project => <MenuItem value={project.id}
@@ -90,7 +86,7 @@ function FormReport({handleChange, form, customers, projects}) {
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                 <TextField
                     label="Descripción" name="description" onChange={handleChange} multiline rows={3} variant="outlined"
-                    value={form.description} margin="dense" variant="outlined" fullWidth
+                     margin="dense" variant="outlined" fullWidth
                 />
             </Grid>
         </React.Fragment>
