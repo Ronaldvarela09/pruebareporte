@@ -43,9 +43,48 @@ const IndexPage = () => {
 
     const [form, setForm] = useState(initialAssigned)
 
-    const handleChange = (event) => {
-
+    const handleChangeemployee = (employee, index) => {
+        const assigned = [...form].map((assigned, $index) => index === $index
+            ? {...assigned, employee}
+            : assigned)
+        setForm(assigned)
     }
+
+    const handleChangedateBeg = (dateBeg, index) => {
+        const assigned = [...form].map((assigned, $index) => index === $index
+            ? {...assigned, dateBeg}
+            : assigned)
+        setForm(assigned)
+    }
+
+    const handleChangedateEnd = (dateEnd, index) => {
+        const assigned = [...form].map((assigned, $index) => index === $index
+            ? {...assigned, dateEnd}
+            : assigned)
+        setForm(assigned)
+    }
+
+    const handleChangecustomer = (customer, index) => {
+        const assigned = [...form].map((assigned, $index) => index === $index
+            ? {...assigned, customer}
+            : assigned)
+        setForm(assigned)
+    }
+
+    const handleChangeproject = (project, index) => {
+        const assigned = [...form].map((assigned, $index) => index === $index
+            ? {...assigned, project}
+            : assigned)
+        setForm(assigned)
+    }
+
+    const handleChangedescription = (description, index) => {
+        const assigned = [...form].map((assigned, $index) => index === $index
+            ? {...assigned, description}
+            : assigned)
+        setForm(assigned)
+    }
+
 
     const handleDateChange = (time) => {
         let hourMinutes = 0 //selectedDate.getHours() * 60
@@ -70,7 +109,10 @@ const IndexPage = () => {
 
 
                 { form.length > 0 && form.map((form, index) =>
-                <FormReport handleChange={handleChange} form={form} customers={customers} projects={projects}
+                <FormReport form={form} index={index} handleChangeemployee={handleChangeemployee}
+                            handleChangedateBeg={handleChangedateBeg} handleChangedateEnd={handleChangedateEnd}
+                            customers={customers} projects={projects} handleChangecustomer={handleChangecustomer}
+                            handleChangeproject={handleChangeproject} handleChangedescription={handleChangedescription}
                 />
                 )
                 }

@@ -14,9 +14,8 @@ import moment from "moment"
 import Button from '@material-ui/core/Button'
 
 
-
-
-function FormReport({handleChange, form, customers, projects}) {
+function FormReport({handleChange, index, handleChangeemployee, customers, projects, handleChangedateBeg,
+                        handleChangedateEnd, handleChangecustomer, handleChangeproject, handleChangedescription}) {
 
     return (
         <React.Fragment>
@@ -29,12 +28,14 @@ function FormReport({handleChange, form, customers, projects}) {
                 <TextField
                     id="employee" name="employee" variant="outlined" fullWidth margin="dense"
                     label="Empleado"
+                    onChange={({target}) => handleChangeemployee(target.value, index)}
                 />
             </Grid>
             <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                 <TextField
                     id="dateBeg" name="dateBeg" label="Fecha inicial" type="date"
-                    onChange={handleChange} variant="outlined" fullWidth margin="dense"
+                    onChange={({target}) => handleChangedateBeg(target.value, index)}
+                    variant="outlined" fullWidth margin="dense"
                     InputLabelProps={{shrink: true}}
                 />
             </Grid>
@@ -42,6 +43,7 @@ function FormReport({handleChange, form, customers, projects}) {
                 <TextField
                     id="dateEnd" name="dateEnd" label="Fecha final" type="date"
                     onChange={handleChange} variant="outlined" fullWidth margin="dense"
+                    onChange={({target}) => handleChangedateEnd(target.value, index)}
                     InputLabelProps={{shrink: true}}
                 />
             </Grid>
@@ -54,7 +56,8 @@ function FormReport({handleChange, form, customers, projects}) {
                 >
                     <InputLabel htmlFor="employment">Seleccione el cliente</InputLabel>
                     <Select
-                        onChange={handleChange} name="customer"
+                         name="customer"
+                         onChange={({target}) => handleChangecustomer(target.value, index)}
                         input={<OutlinedInput labelWidth={130} name="customer"/>} label="Seleccione un cargo"
                     >
                         {
@@ -71,7 +74,8 @@ function FormReport({handleChange, form, customers, projects}) {
                 >
                     <InputLabel htmlFor="project">Seleccione el proyecto</InputLabel>
                     <Select
-                        onChange={handleChange} name="project"
+                        name="project"
+                        onChange={({target}) => handleChangeproject(target.value, index)}
                         input={<OutlinedInput labelWidth={130} name="project"/>} label="Seleccione un proyecto"
                     >
                         {
@@ -85,8 +89,9 @@ function FormReport({handleChange, form, customers, projects}) {
 
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                 <TextField
-                    label="Descripción" name="description" onChange={handleChange} multiline rows={3} variant="outlined"
-                     margin="dense" variant="outlined" fullWidth
+                    onChange={({target}) => handleChangedescription(target.value, index)}
+                    label="Descripción" name="description" multiline rows={3} variant="outlined"
+                    margin="dense" variant="outlined" fullWidth
                 />
             </Grid>
         </React.Fragment>
